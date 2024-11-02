@@ -10,7 +10,7 @@
     <meta property="og:url" content="https://gymnasium.farama.org/_modules/gymnasium/utils/play.html" /><meta property="og:image" content="https://gymnasium.farama.org/_static/img/gymnasium-github.png" /><meta name="twitter:card" content="summary_large_image"><link rel="index" title="Index" href="../../../../genindex/" /><link rel="search" title="Search" href="../../../../search/" />
         <link rel="canonical" href="https://gymnasium.farama.org/_modules/gymnasium/utils/play.html" />
 
-    <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.08.19.dev1 -->
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.08.19.dev1 -->
         <title>gymnasium.utils.play - Gymnasium Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=3e7f4c72" />
@@ -215,38 +215,41 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../content/basic_usage/">Basic Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../content/gym_compatibility/">Compatibility with Gym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../content/migration-guide/">v21 to v26 Migration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/basic_usage/">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/train_agent/">Training an Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/create_custom_env/">Create a Custom Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/record_agent/">Recording Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/speed_up_env/">Speeding Up Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/gym_compatibility/">Compatibility with Gym</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/migration_guide/">Migration Guide - v0.21 to v1.0.0</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/env/">Env</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/registry/">Register and Make</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/registry/">Make and register</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/spaces/">Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Spaces</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/spaces/fundamental/">Fundamental Spaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/spaces/composite/">Composite Spaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/spaces/utils/">Spaces Utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/spaces/vector_utils/">Spaces Vector Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/wrappers/">Wrappers</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Wrappers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/wrappers/table/">List of Wrappers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/wrappers/misc_wrappers/">Misc Wrappers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/wrappers/action_wrappers/">Action Wrappers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/wrappers/observation_wrappers/">Observation Wrappers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/wrappers/reward_wrappers/">Reward Wrappers</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/vector/">Vector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/utils/">Utils</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/experimental/">Experimental</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Experimental</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/experimental/functional/">Functional Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/experimental/wrappers/">Wrappers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/experimental/vector/">Vectorizing Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/experimental/vector_wrappers/">Vector Environment Wrappers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/experimental/vector_utils/">Utility functions for vectorisation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/vector/">Vectorize</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Vectorize</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/vector/wrappers/">Wrappers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/vector/async_vector_env/">AsyncVectorEnv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/vector/sync_vector_env/">SyncVectorEnv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/vector/utils/">Utility functions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/utils/">Utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/functional/">Functional Env</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Environments</span></p>
 <ul>
@@ -285,135 +288,31 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../environments/mujoco/walker2d/">Walker2D</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../environments/atari/">Atari</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Atari</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/adventure/">Adventure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/air_raid/">AirRaid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/alien/">Alien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/amidar/">Amidar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/assault/">Assault</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/asterix/">Asterix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/asteroids/">Asteroids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/atlantis/">Atlantis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/atlantis2/">Atlantis2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/backgammon/">Backgammon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/bank_heist/">BankHeist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/basic_math/">BasicMath</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/battle_zone/">BattleZone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/beam_rider/">BeamRider</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/berzerk/">Berzerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/blackjack/">Blackjack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/bowling/">Bowling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/boxing/">Boxing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/breakout/">Breakout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/carnival/">Carnival</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/casino/">Casino</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/centipede/">Centipede</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/chopper_command/">ChopperCommand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/crazy_climber/">CrazyClimber</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/crossbow/">Crossbow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/darkchambers/">Darkchambers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/defender/">Defender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/demon_attack/">DemonAttack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/donkey_kong/">DonkeyKong</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/double_dunk/">DoubleDunk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/earthworld/">Earthworld</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/elevator_action/">ElevatorAction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/enduro/">Enduro</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/entombed/">Entombed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/et/">Et</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/fishing_derby/">FishingDerby</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/flag_capture/">FlagCapture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/freeway/">Freeway</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/frogger/">Frogger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/frostbite/">Frostbite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/galaxian/">Galaxian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/gopher/">Gopher</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/gravitar/">Gravitar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/hangman/">Hangman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/haunted_house/">HauntedHouse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/hero/">Hero</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/human_cannonball/">HumanCannonball</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/ice_hockey/">IceHockey</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/jamesbond/">Jamesbond</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/journey_escape/">JourneyEscape</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/kaboom/">Kaboom</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/kangaroo/">Kangaroo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/keystone_kapers/">KeystoneKapers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/king_kong/">KingKong</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/klax/">Klax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/koolaid/">Koolaid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/krull/">Krull</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/kung_fu_master/">KungFuMaster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/laser_gates/">LaserGates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/lost_luggage/">LostLuggage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/mario_bros/">MarioBros</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/miniature_golf/">MiniatureGolf</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/montezuma_revenge/">MontezumaRevenge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/mr_do/">MrDo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/ms_pacman/">MsPacman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/name_this_game/">NameThisGame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/othello/">Othello</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/pacman/">Pacman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/phoenix/">Phoenix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/pitfall/">Pitfall</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/pitfall2/">Pitfall2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/pong/">Pong</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/pooyan/">Pooyan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/private_eye/">PrivateEye</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/qbert/">Qbert</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/riverraid/">Riverraid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/road_runner/">RoadRunner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/robotank/">Robotank</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/seaquest/">Seaquest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/sir_lancelot/">SirLancelot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/skiing/">Skiing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/solaris/">Solaris</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/space_invaders/">SpaceInvaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/space_war/">SpaceWar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/star_gunner/">StarGunner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/superman/">Superman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/surround/">Surround</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/tennis/">Tennis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/tetris/">Tetris</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/tic_tac_toe_3d/">TicTacToe3D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/time_pilot/">TimePilot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/trondead/">Trondead</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/turmoil/">Turmoil</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/tutankham/">Tutankham</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/up_n_down/">UpNDown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/venture/">Venture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/video_checkers/">VideoCheckers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/video_chess/">VideoChess</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/video_cube/">VideoCube</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/video_pinball/">VideoPinball</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/wizard_of_wor/">WizardOfWor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/word_zapper/">WordZapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/yars_revenge/">YarsRevenge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../environments/atari/zaxxon/">Zaxxon</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../environments/third_party_environments/">Third-Party Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../environments/atari/">Atari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../environments/third_party_environments/">External Environments</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/">Gymnasium Basics</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Gymnasium Basics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/">Gymnasium Basics</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Gymnasium Basics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/load_quadruped_model/">Load custom quadruped robot environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/handling_time_limits/">Handling Time Limits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/implementing_custom_wrappers/">Implementing Custom Wrappers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/environment_creation/">Make your own custom environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/gymnasium_basics/vector_envs_tutorial/">Training A2C with Vector Envs and Domain Randomization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/training_agents/">Training Agents</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Training Agents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/training_agents/">Training Agents</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Training Agents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/reinforce_invpend_gym_v26/">Training using REINFORCE for Mujoco</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/blackjack_tutorial/">Solving Blackjack with Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/FrozenLake_tuto/">Frozenlake benchmark</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://www.comet.com/docs/v2/integrations/ml-frameworks/gymnasium/?utm_source=gymnasium&amp;utm_medium=partner&amp;utm_campaign=partner_gymnasium_2023&amp;utm_content=docs_gymnasium">Comet Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/third-party-tutorials/">Third-Party Tutorials</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Farama-Foundation/Gymnasium">Github</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://arxiv.org/abs/2407.17032">Paper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../gymnasium_release_notes/">Gymnasium Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../gym_release_notes/">Gym Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Farama-Foundation/Gymnasium/blob/main/docs/README.md">Contribute to the Docs</a></li>
@@ -466,8 +365,11 @@
             
             <h1>Source code for gymnasium.utils.play</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Utilities of visualising an environment.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -475,7 +377,6 @@
 <span class="kn">from</span> <span class="nn">gymnasium</span> <span class="kn">import</span> <span class="n">Env</span><span class="p">,</span> <span class="n">logger</span>
 <span class="kn">from</span> <span class="nn">gymnasium.core</span> <span class="kn">import</span> <span class="n">ActType</span><span class="p">,</span> <span class="n">ObsType</span>
 <span class="kn">from</span> <span class="nn">gymnasium.error</span> <span class="kn">import</span> <span class="n">DependencyNotInstalled</span>
-<span class="kn">from</span> <span class="nn">gymnasium.logger</span> <span class="kn">import</span> <span class="n">deprecation</span>
 
 
 <span class="k">try</span><span class="p">:</span>
@@ -484,7 +385,7 @@
     <span class="kn">from</span> <span class="nn">pygame.event</span> <span class="kn">import</span> <span class="n">Event</span>
 <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="k">raise</span> <span class="n">gym</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">DependencyNotInstalled</span><span class="p">(</span>
-        <span class="s2">&quot;pygame is not installed, run `pip install gymnasium[classic-control]`&quot;</span>
+        <span class="s1">&#39;pygame is not installed, run `pip install &quot;gymnasium[classic_control]&quot;`&#39;</span>
     <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
 
 <span class="k">try</span><span class="p">:</span>
@@ -493,7 +394,7 @@
     <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;TkAgg&quot;</span><span class="p">)</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;matplotlib is not installed, run `pip install gymnasium[other]`&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;matplotlib is not installed, run `pip install &quot;gymnasium[other]&quot;`&#39;</span><span class="p">)</span>
     <span class="n">matplotlib</span><span class="p">,</span> <span class="n">plt</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 
 
@@ -509,8 +410,8 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">env</span><span class="p">:</span> <span class="n">Env</span><span class="p">,</span>
-        <span class="n">keys_to_action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">keys_to_action</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">zoom</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Wraps an environment with a dictionary of keyboard buttons to action and if to zoom in on the environment.</span>
 
@@ -535,24 +436,22 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">_get_relevant_keys</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">keys_to_action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">keys_to_action</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">keys_to_action</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">):</span>
-                <span class="n">keys_to_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get_keys_to_action</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">unwrapped</span><span class="p">,</span> <span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">):</span>
-                <span class="n">keys_to_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">unwrapped</span><span class="o">.</span><span class="n">get_keys_to_action</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">has_wrapper_attr</span><span class="p">(</span><span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">):</span>
+                <span class="n">keys_to_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get_wrapper_attr</span><span class="p">(</span><span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">)()</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
                 <span class="k">raise</span> <span class="n">MissingKeysToAction</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> does not have explicit key to action mapping, &quot;</span>
-                    <span class="s2">&quot;please specify one manually&quot;</span>
+                    <span class="s2">&quot;please specify one manually, `play(env, keys_to_action=...)`&quot;</span>
                 <span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keys_to_action</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
         <span class="n">relevant_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="nb">list</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys_to_action</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="p">[]))</span>
         <span class="k">return</span> <span class="n">relevant_keys</span>
 
-    <span class="k">def</span> <span class="nf">_get_video_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">_get_video_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoom</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
         <span class="n">rendered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rendered</span><span class="p">,</span> <span class="n">List</span><span class="p">):</span>
             <span class="n">rendered</span> <span class="o">=</span> <span class="n">rendered</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -596,7 +495,7 @@
 
 
 <span class="k">def</span> <span class="nf">display_arr</span><span class="p">(</span>
-    <span class="n">screen</span><span class="p">:</span> <span class="n">Surface</span><span class="p">,</span> <span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">video_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">transpose</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">screen</span><span class="p">:</span> <span class="n">Surface</span><span class="p">,</span> <span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">video_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">transpose</span><span class="p">:</span> <span class="nb">bool</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays a numpy array on screen.</span>
 
@@ -606,8 +505,7 @@
 <span class="sd">        video_size: The video size of the screen</span>
 <span class="sd">        transpose: If to transpose the array on the screen</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">arr_min</span><span class="p">,</span> <span class="n">arr_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="mf">255.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">arr</span> <span class="o">-</span> <span class="n">arr_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">arr_max</span> <span class="o">-</span> <span class="n">arr_min</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">arr</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span>
     <span class="n">pyg_img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">surfarray</span><span class="o">.</span><span class="n">make_surface</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">transpose</span> <span class="k">else</span> <span class="n">arr</span><span class="p">)</span>
     <span class="n">pyg_img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">pyg_img</span><span class="p">,</span> <span class="n">video_size</span><span class="p">)</span>
     <span class="c1"># We might have to add black bars if surface_size is larger than video_size</span>
@@ -622,15 +520,18 @@
 <a class="viewcode-back" href="../../../../api/utils/#gymnasium.utils.play.play">[docs]</a>
 <span class="k">def</span> <span class="nf">play</span><span class="p">(</span>
     <span class="n">env</span><span class="p">:</span> <span class="n">Env</span><span class="p">,</span>
-    <span class="n">transpose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">fps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">callback</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">keys_to_action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="nb">str</span><span class="p">],</span> <span class="n">ActType</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">transpose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">zoom</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">keys_to_action</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ActType</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">noop</span><span class="p">:</span> <span class="n">ActType</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">wait_on_player</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Allows one to play the game using keyboard.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Allows the user to play the environment using a keyboard.</span>
+
+<span class="sd">    If playing in a turn-based environment, set wait_on_player to True.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        env: Environment to use for playing.</span>
@@ -639,13 +540,14 @@
 <span class="sd">            ``env.metadata[&quot;render_fps&quot;&quot;]`` (or 30, if the environment does not specify &quot;render_fps&quot;) is used.</span>
 <span class="sd">        zoom: Zoom the observation in, ``zoom`` amount, should be positive float</span>
 <span class="sd">        callback: If a callback is provided, it will be executed after every step. It takes the following input:</span>
-<span class="sd">                obs_t: observation before performing action</span>
-<span class="sd">                obs_tp1: observation after performing action</span>
-<span class="sd">                action: action that was executed</span>
-<span class="sd">                rew: reward that was received</span>
-<span class="sd">                terminated: whether the environment is terminated or not</span>
-<span class="sd">                truncated: whether the environment is truncated or not</span>
-<span class="sd">                info: debug info</span>
+
+<span class="sd">            * obs_t: observation before performing action</span>
+<span class="sd">            * obs_tp1: observation after performing action</span>
+<span class="sd">            * action: action that was executed</span>
+<span class="sd">            * rew: reward that was received</span>
+<span class="sd">            * terminated: whether the environment is terminated or not</span>
+<span class="sd">            * truncated: whether the environment is truncated or not</span>
+<span class="sd">            * info: debug info</span>
 <span class="sd">        keys_to_action:  Mapping from keys pressed to action performed.</span>
 <span class="sd">            Different formats are supported: Key combinations can either be expressed as a tuple of unicode code</span>
 <span class="sd">            points of the keys, as a tuple of characters, or as a string where each character of the string represents</span>
@@ -678,30 +580,34 @@
 <span class="sd">            If ``None``, default ``key_to_action`` mapping for that environment is used, if provided.</span>
 <span class="sd">        seed: Random seed used when resetting the environment. If None, no seed is used.</span>
 <span class="sd">        noop: The action used when no key input has been entered, or the entered key combination is unknown.</span>
+<span class="sd">        wait_on_player: Play should wait for a user action</span>
 
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt; import gymnasium as gym</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">        &gt;&gt;&gt; from gymnasium.utils.play import play</span>
-<span class="sd">        &gt;&gt;&gt; play(gym.make(&quot;CarRacing-v2&quot;, render_mode=&quot;rgb_array&quot;), keys_to_action={  # doctest: +SKIP</span>
-<span class="sd">        ...                                                &quot;w&quot;: np.array([0, 0.7, 0]),</span>
-<span class="sd">        ...                                                &quot;a&quot;: np.array([-1, 0, 0]),</span>
-<span class="sd">        ...                                                &quot;s&quot;: np.array([0, 0, 1]),</span>
-<span class="sd">        ...                                                &quot;d&quot;: np.array([1, 0, 0]),</span>
-<span class="sd">        ...                                                &quot;wa&quot;: np.array([-1, 0.7, 0]),</span>
-<span class="sd">        ...                                                &quot;dw&quot;: np.array([1, 0.7, 0]),</span>
-<span class="sd">        ...                                                &quot;ds&quot;: np.array([1, 0, 1]),</span>
-<span class="sd">        ...                                                &quot;as&quot;: np.array([-1, 0, 1]),</span>
-<span class="sd">        ...                                               }, noop=np.array([0,0,0]))</span>
+<span class="sd">        &gt;&gt;&gt; play(gym.make(&quot;CarRacing-v3&quot;, render_mode=&quot;rgb_array&quot;),  # doctest: +SKIP</span>
+<span class="sd">        ...     keys_to_action={</span>
+<span class="sd">        ...         &quot;w&quot;: np.array([0, 0.7, 0], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;a&quot;: np.array([-1, 0, 0], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;s&quot;: np.array([0, 0, 1], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;d&quot;: np.array([1, 0, 0], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;wa&quot;: np.array([-1, 0.7, 0], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;dw&quot;: np.array([1, 0.7, 0], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;ds&quot;: np.array([1, 0, 1], dtype=np.float32),</span>
+<span class="sd">        ...         &quot;as&quot;: np.array([-1, 0, 1], dtype=np.float32),</span>
+<span class="sd">        ...     },</span>
+<span class="sd">        ...     noop=np.array([0, 0, 0], dtype=np.float32)</span>
+<span class="sd">        ... )</span>
 
 <span class="sd">        Above code works also if the environment is wrapped, so it&#39;s particularly useful in</span>
 <span class="sd">        verifying that the frame-level preprocessing does not render the game</span>
 <span class="sd">        unplayable.</span>
 
 <span class="sd">        If you wish to plot real time statistics as you play, you can use</span>
-<span class="sd">        :class:`gym.utils.play.PlayPlot`. Here&#39;s a sample code for plotting the reward</span>
+<span class="sd">        :class:`PlayPlot`. Here&#39;s a sample code for plotting the reward</span>
 <span class="sd">        for last 150 steps.</span>
 
-<span class="sd">        &gt;&gt;&gt; import gymnasium as gym</span>
 <span class="sd">        &gt;&gt;&gt; from gymnasium.utils.play import PlayPlot, play</span>
 <span class="sd">        &gt;&gt;&gt; def callback(obs_t, obs_tp1, action, rew, terminated, truncated, info):</span>
 <span class="sd">        ...        return [rew,]</span>
@@ -711,17 +617,27 @@
     <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">keys_to_action</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">):</span>
-            <span class="n">keys_to_action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_keys_to_action</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">unwrapped</span><span class="p">,</span> <span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">):</span>
-            <span class="n">keys_to_action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">unwrapped</span><span class="o">.</span><span class="n">get_keys_to_action</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">env</span><span class="o">.</span><span class="n">has_wrapper_attr</span><span class="p">(</span><span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">):</span>
+            <span class="n">keys_to_action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_wrapper_attr</span><span class="p">(</span><span class="s2">&quot;get_keys_to_action&quot;</span><span class="p">)()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">env</span><span class="o">.</span><span class="n">spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
             <span class="k">raise</span> <span class="n">MissingKeysToAction</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> does not have explicit key to action mapping, &quot;</span>
                 <span class="s2">&quot;please specify one manually&quot;</span>
             <span class="p">)</span>
+
     <span class="k">assert</span> <span class="n">keys_to_action</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="c1"># validate the `keys_to_action` set provided</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keys_to_action</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">keys_to_action</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+
+        <span class="k">assert</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span>
 
     <span class="n">key_code_to_action</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">key_combination</span><span class="p">,</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">keys_to_action</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -742,7 +658,7 @@
         <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
             <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="n">obs</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">wait_on_player</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">pressed_keys</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">key_code_to_action</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">pressed_keys</span><span class="p">)),</span> <span class="n">noop</span><span class="p">)</span>
             <span class="n">prev_obs</span> <span class="o">=</span> <span class="n">obs</span>
             <span class="n">obs</span><span class="p">,</span> <span class="n">rew</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
@@ -799,7 +715,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">horizon_timesteps</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">plot_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">horizon_timesteps</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">plot_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor of :class:`PlayPlot`.</span>
 
@@ -814,16 +730,13 @@
 <span class="sd">        Raises:</span>
 <span class="sd">            DependencyNotInstalled: If matplotlib is not installed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">deprecation</span><span class="p">(</span>
-            <span class="s2">&quot;`PlayPlot` is marked as deprecated and will be removed in the near future.&quot;</span>
-        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_callback</span> <span class="o">=</span> <span class="n">callback</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">horizon_timesteps</span> <span class="o">=</span> <span class="n">horizon_timesteps</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plot_names</span> <span class="o">=</span> <span class="n">plot_names</span>
 
         <span class="k">if</span> <span class="n">plt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">DependencyNotInstalled</span><span class="p">(</span>
-                <span class="s2">&quot;matplotlib is not installed, run `pip install gymnasium[other]`&quot;</span>
+                <span class="s1">&#39;matplotlib is not installed, run `pip install &quot;gymnasium[other]&quot;`&#39;</span>
             <span class="p">)</span>
 
         <span class="n">num_plots</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_names</span><span class="p">)</span>
@@ -833,7 +746,7 @@
         <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">,</span> <span class="n">plot_names</span><span class="p">):</span>
             <span class="n">axis</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cur_plot</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_plots</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cur_plot</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_plots</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">horizon_timesteps</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_plots</span><span class="p">)]</span>
 
 <div class="viewcode-block" id="PlayPlot.callback">
@@ -878,7 +791,7 @@
 
         <span class="k">if</span> <span class="n">plt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">DependencyNotInstalled</span><span class="p">(</span>
-                <span class="s2">&quot;matplotlib is not installed, run `pip install gymnasium[other]`&quot;</span>
+                <span class="s1">&#39;matplotlib is not installed, run `pip install &quot;gymnasium[other]&quot;`&#39;</span>
             <span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.000001</span><span class="p">)</span></div>
 </div>
@@ -895,7 +808,7 @@
           <div class="bottom-of-page">
             <div class="left-details">
               <div class="copyright">
-                Copyright &#169; 2023 Farama Foundation
+                Copyright &#169; 2024 Farama Foundation
               </div>
               <!--
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
@@ -1000,8 +913,8 @@
         })()
       </script>
 
-    <script src="../../../../_static/documentation_options.js?v=cecadf6f"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/documentation_options.js?v=3596a5a1"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=7660844c"></script>
     
