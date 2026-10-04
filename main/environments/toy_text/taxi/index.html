@@ -11,15 +11,15 @@
 <link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Cliff Walking" href="../cliff_walking/" /><link rel="prev" title="Blackjack" href="../blackjack/" />
         <link rel="canonical" href="https://gymnasium.farama.org/environments/toy_text/taxi.html" />
 
-    <link rel="shortcut icon" href="../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.08.19.dev1 -->
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Celshast 0.0.1 -->
         <title>Taxi - Gymnasium Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=3e7f4c72" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/celshast.css?v=9fbfb63d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=82c8b628" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/celshast-extensions.css?v=42bfddca" />
     
     
 
@@ -221,8 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/create_custom_env/">Create a Custom Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/record_agent/">Recording Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/speed_up_env/">Speeding Up Training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction/gym_compatibility/">Compatibility with Gym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction/migration_guide/">Migration Guide - v0.21 to v1.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/migration_guide/">Gym Migration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul>
@@ -302,6 +301,10 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/training_agents/">Training Agents</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Training Agents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/">Action Masking in the Taxi Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#running-the-experiment">Running the Experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#visualizing-results">Visualizing Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#results-analysis">Results Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/blackjack_q_learning/">Solving Blackjack with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/frozenlake_q_learning/">Solving Frozenlake with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/mujoco_reinforce/">Training using REINFORCE for Mujoco</a></li>
@@ -386,7 +389,7 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">Discrete(500)</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>import</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">gymnasium.make(&quot;Taxi-v3&quot;)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gymnasium.make(&quot;Taxi-v4&quot;)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -405,13 +408,13 @@ drop off the passenger. Once the passenger is dropped off, the episode ends.</p>
 location. Negative rewards for incorrect attempts to pick-up/drop-off passenger and
 for each step where another reward is not received.</p>
 <p>Map:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    +---------+
-    |R: | : :G|
-    | : | : : |
-    | : : : : |
-    | | : | : |
-    |Y| : |B: |
-    +---------+
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------+
+|R: | : :G|
+| : | : : |
+| : : : : |
+| | : | : |
+|Y| : |B: |
++---------+
 </pre></div>
 </div>
 <p>From “Hierarchical Reinforcement Learning with the MAXQ Value Function Decomposition”
@@ -435,7 +438,7 @@ which direction to move the taxi or to pickup/drop off passengers.</p>
 <p>There are 500 discrete states since there are 25 taxi positions, 5 possible
 locations of the passenger (including the case when the passenger is in the
 taxi), and 4 destination locations.</p>
-<p>Destination on the map are represented with the first letter of the color.</p>
+<p>Destination on the ansi rendered map are represented with the first letter of the color.</p>
 <p>Passenger locations:</p>
 <ul class="simple">
 <li><p>0: Red</p></li>
@@ -470,7 +473,7 @@ and 3 destinations (excluding the passenger’s current location).</p>
 <section id="rewards">
 <h2>Rewards<a class="headerlink" href="#rewards" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>-1 per step unless other reward is triggered.</p></li>
+<li><p>-1 per step unless another reward is triggered.</p></li>
 <li><p>+20 delivering passenger.</p></li>
 <li><p>-10  executing “pickup” and “drop-off” actions illegally.</p></li>
 </ul>
@@ -481,18 +484,24 @@ penalty. Noops can be avoided by sampling the <code class="docutils literal notr
 <h2>Episode End<a class="headerlink" href="#episode-end" title="Link to this heading">¶</a></h2>
 <p>The episode ends if the following happens:</p>
 <ul class="simple">
-<li><p>Termination:
-1. The taxi drops off the passenger.</p></li>
-<li><p>Truncation (when using the time_limit wrapper):
-1. The length of the episode is 200.</p></li>
+<li><p>Termination:</p>
+<ol class="arabic simple">
+<li><p>The taxi drops off the passenger.</p></li>
+</ol>
+</li>
+<li><p>Truncation (when using the time_limit wrapper):</p>
+<ol class="arabic simple">
+<li><p>The length of the episode is 200.</p></li>
+</ol>
+</li>
 </ul>
 </section>
 <section id="information">
 <h2>Information<a class="headerlink" href="#information" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">step()</span></code> and <code class="docutils literal notranslate"><span class="pre">reset()</span></code> return a dict with the following keys:</p>
 <ul class="simple">
-<li><p>p - transition probability for the state.</p></li>
-<li><p>action_mask - if actions will cause a transition to a new state.</p></li>
+<li><p>“prob”: transition probability for the state.</p></li>
+<li><p>“action_mask”: if actions will cause a transition to a new state. This was added in v0.25.0</p></li>
 </ul>
 <p>For some cases, taking an action will have no effect on the state of the episode.
 In v0.25.0, <code class="docutils literal notranslate"><span class="pre">info[&quot;action_mask&quot;]</span></code> contains a np.ndarray for each of the actions specifying
@@ -503,16 +512,20 @@ Or with a Q-value based algorithm <code class="docutils literal notranslate"><sp
 <section id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gymnasium</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gym</span>
-<span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;Taxi-v3&#39;</span><span class="p">)</span>
+<span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">'Taxi-v4'</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a id="is_raining"></a><code class="docutils literal notranslate"><span class="pre">is_raining=False</span></code>: If True the cab will move in intended direction with
-probability of 80% else will move in either left or right of target direction with
-equal probability of 10% in both directions.</p>
-<p><a id="fickle_passenger"></a><code class="docutils literal notranslate"><span class="pre">fickle_passenger=False</span></code>: If true the passenger has a 30% chance of changing
-destinations when the cab has moved one square away from the passenger’s source location.  Passenger fickleness
-only happens on the first pickup and successful movement.  If the passenger is dropped off at the source location
-and picked up again, it is not triggered again.</p>
+<p><a id="is_rainy"></a><code class="docutils literal notranslate"><span class="pre">is_rainy=False</span></code>: If True the cab will move in the intended direction with probability
+80%, controlled by <code class="docutils literal notranslate"><span class="pre">rainy_probability</span></code>, else in a lateral direction with equal probability.
+Pickup and dropoff actions remain deterministic (probability 1.0).</p>
+<p><a id="rainy_probability"></a><code class="docutils literal notranslate"><span class="pre">rainy_probability=0.8</span></code>: When <code class="docutils literal notranslate"><span class="pre">is_rainy=True</span></code>, the probability of
+moving in the intended direction. Each lateral direction is given <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">-</span> <span class="pre">rainy_probability)</span> <span class="pre">/</span> <span class="pre">2</span></code>.</p>
+<p><a id="fickle_passenger"></a><code class="docutils literal notranslate"><span class="pre">fickle_passenger=False</span></code>: If True the passenger has a chance 30%,
+controlled by <code class="docutils literal notranslate"><span class="pre">fickle_probability</span></code>, of changing destinations when the cab has moved one square away from the
+passenger’s source location. Passenger fickleness only happens on the first pickup and successful movement.
+If the passenger is dropped off at the source location and picked up again, it isn’t triggered again.</p>
+<p><a id="fickle_probability"></a><code class="docutils literal notranslate"><span class="pre">fickle_probability=0.3</span></code>: When <code class="docutils literal notranslate"><span class="pre">fickle_passenger=True</span></code>, the probability
+that the passenger changes destination on the first move after pickup.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
@@ -522,9 +535,15 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
 <section id="version-history">
 <h2>Version History<a class="headerlink" href="#version-history" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>v3: Map Correction + Cleaner Domain Description, v0.25.0 action masking added to the reset and step information</p>
+<li><p>v4: In v1.3.0, fix <code class="docutils literal notranslate"><span class="pre">is_rainy=True</span></code> and <code class="docutils literal notranslate"><span class="pre">fickle_passenger=True</span></code> implementations</p>
 <ul>
-<li><p>In Gymnasium <code class="docutils literal notranslate"><span class="pre">1.2.0</span></code> the <code class="docutils literal notranslate"><span class="pre">is_rainy</span></code> and <code class="docutils literal notranslate"><span class="pre">fickle_passenger</span></code> arguments were added to align with Dietterich, 2000</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">rainy_probability</span></code> and <code class="docutils literal notranslate"><span class="pre">fickle_probability</span></code> arguments to tune the stochastic behaviour</p></li>
+</ul>
+</li>
+<li><p>v3: Map Correction + Cleaner Domain Description,</p>
+<ul>
+<li><p>In v0.25.0 action masking added to the reset and step information</p></li>
+<li><p>In v1.2.0 added <code class="docutils literal notranslate"><span class="pre">is_rainy</span></code> and <code class="docutils literal notranslate"><span class="pre">fickle_passenger</span></code> arguments to align with Dietterich, 2000 Section 7.1</p></li>
 </ul>
 </li>
 <li><p>v2: Disallow Taxi start location = goal location, Update Taxi observations in the rollout, Update Taxi reward threshold.</p></li>
@@ -557,7 +576,7 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
           <div class="bottom-of-page">
             <div class="left-details">
               <div class="copyright">
-                Copyright &#169; 2025 Farama Foundation
+                Copyright &#169; 2026 Farama Foundation
               </div>
               <!--
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
@@ -690,10 +709,10 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
         })()
       </script>
 
-    <script src="../../../_static/documentation_options.js?v=d8a3a229"></script>
+    <script src="../../../_static/documentation_options.js?v=74824699"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/furo.js?v=7660844c"></script>
+    <script src="../../../_static/scripts/celshast.js?v=a788a8c6"></script>
     
     <script>
 
@@ -754,14 +773,6 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
         const jsonResponse = xhr.response;
         const sections = {
           "Core Projects": [],
-          "Mature Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
-          "Incubating Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
           "Foundation": [
             {
               name: "About",
@@ -775,7 +786,14 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
               name: "Donate",
               link: "https://farama.org/donations"
             }
-          ]
+          ],
+          "Mature Projects": {
+            "Documentation": [],
+          },
+          "Incubating Projects": {
+            "Documentation": [],
+            "Repositories": [],
+          }
         }
 
         // Categorize projects
@@ -791,8 +809,6 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
           } else if (projectJson.type == "mature") {
             if (projectJson.website !== null) {
               sections["Mature Projects"]["Documentation"].push(projectJson)
-            } else {
-              sections["Mature Projects"]["Repositories"].push(projectJson)
             }
           } else {
             if (projectJson.website !== null) {
@@ -804,6 +820,13 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
         })
 
         const menuContainer = document.querySelector(".farama-header-menu__body");
+
+        const stackedColumnElem = Object.assign(
+          document.createElement('div'), {
+            style: 'display: flex; flex-direction: column;'
+          }
+        );
+        const stackedKeys = new Set(["Core Projects", "Foundation"]);
 
         Object.keys(sections).forEach((key, i) => {
           const sectionElem = Object.assign(
@@ -848,7 +871,14 @@ Journal of Artificial Intelligence Research, vol. 13, pp. 227–303, Nov. 2000, 
             const ulElem = createProjectsList(projects, true);
             sectionElem.appendChild(ulElem);
           }
-          menuContainer.appendChild(sectionElem)
+          if (stackedKeys.has(key)) {
+            if (!stackedColumnElem.parentNode) {
+              menuContainer.appendChild(stackedColumnElem);
+            }
+            stackedColumnElem.appendChild(sectionElem);
+          } else {
+            menuContainer.appendChild(sectionElem);
+          }
         });
       }
 

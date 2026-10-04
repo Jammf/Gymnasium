@@ -11,15 +11,15 @@
 <link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Misc Wrappers" href="../misc_wrappers/" /><link rel="prev" title="Wrappers" href="../" />
         <link rel="canonical" href="https://gymnasium.farama.org/api/wrappers/table.html" />
 
-    <link rel="shortcut icon" href="../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.08.19.dev1 -->
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Celshast 0.0.1 -->
         <title>List of Wrappers - Gymnasium Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=3e7f4c72" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/celshast.css?v=9fbfb63d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=82c8b628" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/celshast-extensions.css?v=42bfddca" />
     
     
 
@@ -221,8 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/create_custom_env/">Create a Custom Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/record_agent/">Recording Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/speed_up_env/">Speeding Up Training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction/gym_compatibility/">Compatibility with Gym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction/migration_guide/">Migration Guide - v0.21 to v1.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/migration_guide/">Gym Migration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul class="current">
@@ -302,6 +301,10 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/training_agents/">Training Agents</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Training Agents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/">Action Masking in the Taxi Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#running-the-experiment">Running the Experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#visualizing-results">Visualizing Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#results-analysis">Results Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/blackjack_q_learning/">Solving Blackjack with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/frozenlake_q_learning/">Solving Frozenlake with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/mujoco_reinforce/">Training using REINFORCE for Mujoco</a></li>
@@ -469,22 +472,25 @@ wrapper in the page on the wrapper type</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="../observation_wrappers/#gymnasium.wrappers.ResizeObservation" title="gymnasium.wrappers.ResizeObservation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResizeObservation</span></code></a></p></td>
 <td><p>Resizes image observations using OpenCV to a specified shape.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../action_wrappers/#gymnasium.wrappers.StickyAction" title="gymnasium.wrappers.StickyAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">StickyAction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../action_wrappers/#gymnasium.wrappers.RepeatAction" title="gymnasium.wrappers.RepeatAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepeatAction</span></code></a></p></td>
+<td><p>Repeats an action <code class="docutils literal notranslate"><span class="pre">N</span></code> times, returning the cumulative reward and last observation / info.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../action_wrappers/#gymnasium.wrappers.StickyAction" title="gymnasium.wrappers.StickyAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">StickyAction</span></code></a></p></td>
 <td><p>Adds a probability that the action is repeated for the same <code class="docutils literal notranslate"><span class="pre">step</span></code> function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../observation_wrappers/#gymnasium.wrappers.TimeAwareObservation" title="gymnasium.wrappers.TimeAwareObservation"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeAwareObservation</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../observation_wrappers/#gymnasium.wrappers.TimeAwareObservation" title="gymnasium.wrappers.TimeAwareObservation"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeAwareObservation</span></code></a></p></td>
 <td><p>Augment the observation with the number of time steps taken within an episode.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../misc_wrappers/#gymnasium.wrappers.TimeLimit" title="gymnasium.wrappers.TimeLimit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeLimit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../misc_wrappers/#gymnasium.wrappers.TimeLimit" title="gymnasium.wrappers.TimeLimit"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeLimit</span></code></a></p></td>
 <td><p>Limits the number of steps for an environment through truncating the environment if a maximum number of timesteps is exceeded.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../action_wrappers/#gymnasium.wrappers.TransformAction" title="gymnasium.wrappers.TransformAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformAction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../action_wrappers/#gymnasium.wrappers.TransformAction" title="gymnasium.wrappers.TransformAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformAction</span></code></a></p></td>
 <td><p>Applies a function to the <code class="docutils literal notranslate"><span class="pre">action</span></code> before passing the modified value to the environment <code class="docutils literal notranslate"><span class="pre">step</span></code> function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../observation_wrappers/#gymnasium.wrappers.TransformObservation" title="gymnasium.wrappers.TransformObservation"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformObservation</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../observation_wrappers/#gymnasium.wrappers.TransformObservation" title="gymnasium.wrappers.TransformObservation"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformObservation</span></code></a></p></td>
 <td><p>Applies a function to the <code class="docutils literal notranslate"><span class="pre">observation</span></code> received from the environment’s <code class="docutils literal notranslate"><span class="pre">reset</span></code> and <code class="docutils literal notranslate"><span class="pre">step</span></code> that is passed back to the user.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../reward_wrappers/#gymnasium.wrappers.TransformReward" title="gymnasium.wrappers.TransformReward"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformReward</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../reward_wrappers/#gymnasium.wrappers.TransformReward" title="gymnasium.wrappers.TransformReward"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformReward</span></code></a></p></td>
 <td><p>Applies a function to the <code class="docutils literal notranslate"><span class="pre">reward</span></code> received from the environment’s <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p></td>
 </tr>
 </tbody>
@@ -551,7 +557,7 @@ wrapper in the page on the wrapper type</p>
           <div class="bottom-of-page">
             <div class="left-details">
               <div class="copyright">
-                Copyright &#169; 2025 Farama Foundation
+                Copyright &#169; 2026 Farama Foundation
               </div>
               <!--
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
@@ -675,10 +681,10 @@ wrapper in the page on the wrapper type</p>
         })()
       </script>
 
-    <script src="../../../_static/documentation_options.js?v=d8a3a229"></script>
+    <script src="../../../_static/documentation_options.js?v=74824699"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/furo.js?v=7660844c"></script>
+    <script src="../../../_static/scripts/celshast.js?v=a788a8c6"></script>
     
     <script>
 
@@ -739,14 +745,6 @@ wrapper in the page on the wrapper type</p>
         const jsonResponse = xhr.response;
         const sections = {
           "Core Projects": [],
-          "Mature Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
-          "Incubating Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
           "Foundation": [
             {
               name: "About",
@@ -760,7 +758,14 @@ wrapper in the page on the wrapper type</p>
               name: "Donate",
               link: "https://farama.org/donations"
             }
-          ]
+          ],
+          "Mature Projects": {
+            "Documentation": [],
+          },
+          "Incubating Projects": {
+            "Documentation": [],
+            "Repositories": [],
+          }
         }
 
         // Categorize projects
@@ -776,8 +781,6 @@ wrapper in the page on the wrapper type</p>
           } else if (projectJson.type == "mature") {
             if (projectJson.website !== null) {
               sections["Mature Projects"]["Documentation"].push(projectJson)
-            } else {
-              sections["Mature Projects"]["Repositories"].push(projectJson)
             }
           } else {
             if (projectJson.website !== null) {
@@ -789,6 +792,13 @@ wrapper in the page on the wrapper type</p>
         })
 
         const menuContainer = document.querySelector(".farama-header-menu__body");
+
+        const stackedColumnElem = Object.assign(
+          document.createElement('div'), {
+            style: 'display: flex; flex-direction: column;'
+          }
+        );
+        const stackedKeys = new Set(["Core Projects", "Foundation"]);
 
         Object.keys(sections).forEach((key, i) => {
           const sectionElem = Object.assign(
@@ -833,7 +843,14 @@ wrapper in the page on the wrapper type</p>
             const ulElem = createProjectsList(projects, true);
             sectionElem.appendChild(ulElem);
           }
-          menuContainer.appendChild(sectionElem)
+          if (stackedKeys.has(key)) {
+            if (!stackedColumnElem.parentNode) {
+              menuContainer.appendChild(stackedColumnElem);
+            }
+            stackedColumnElem.appendChild(sectionElem);
+          } else {
+            menuContainer.appendChild(sectionElem);
+          }
         });
       }
 

@@ -11,15 +11,15 @@
 <link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Atari" href="../../atari/" /><link rel="prev" title="Swimmer" href="../swimmer/" />
         <link rel="canonical" href="https://gymnasium.farama.org/environments/mujoco/walker2d.html" />
 
-    <link rel="shortcut icon" href="../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.08.19.dev1 -->
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Celshast 0.0.1 -->
         <title>Walker2D - Gymnasium Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=3e7f4c72" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/celshast.css?v=9fbfb63d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=82c8b628" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/celshast-extensions.css?v=42bfddca" />
     
     
 
@@ -221,8 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/create_custom_env/">Create a Custom Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/record_agent/">Recording Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/speed_up_env/">Speeding Up Training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction/gym_compatibility/">Compatibility with Gym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction/migration_guide/">Migration Guide - v0.21 to v1.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/migration_guide/">Gym Migration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul>
@@ -302,6 +301,10 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/training_agents/">Training Agents</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Training Agents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/">Action Masking in the Taxi Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#running-the-experiment">Running the Experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#visualizing-results">Visualizing Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/action_masking_taxi/#results-analysis">Results Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/blackjack_q_learning/">Solving Blackjack with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/frozenlake_q_learning/">Solving Frozenlake with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/training_agents/mujoco_reinforce/">Training using REINFORCE for Mujoco</a></li>
@@ -650,7 +653,7 @@ Regardless of whether <code class="docutils literal notranslate"><span class="pr
 Every timestep that the Walker2d is alive, it receives a fixed reward of value <code class="docutils literal notranslate"><span class="pre">healthy_reward</span></code> (default is <span class="math notranslate nohighlight">\(1\)</span>),</p></li>
 <li><p><em>forward_reward</em>:
 A reward for moving forward,
-this reward would be positive if the Swimmer moves forward (in the positive <span class="math notranslate nohighlight">\(x\)</span> direction / in the right direction).
+this reward would be positive if the Walker2d moves forward (in the positive <span class="math notranslate nohighlight">\(x\)</span> direction / in the right direction).
 <span class="math notranslate nohighlight">\(w_{forward} \times \frac{dx}{dt}\)</span>, where
 <span class="math notranslate nohighlight">\(dx\)</span> is the displacement of the (front) “tip” (<span class="math notranslate nohighlight">\(x_{after-action} - x_{before-action}\)</span>),
 <span class="math notranslate nohighlight">\(dt\)</span> is the time between actions, which depends on the <code class="docutils literal notranslate"><span class="pre">frame_skip</span></code> parameter (default is <span class="math notranslate nohighlight">\(4\)</span>),
@@ -678,7 +681,7 @@ The initial velocity state is <span class="math notranslate nohighlight">\(\math
 The Walker2d is unhealthy if any of the following happens:</p>
 <ol class="arabic simple">
 <li><p>Any of the state space values is no longer finite</p></li>
-<li><p>The z-coordinate of the torso (the height) is <strong>not</strong> in the closed interval given by the <code class="docutils literal notranslate"><span class="pre">healthy_z_range</span></code> argument (default to <span class="math notranslate nohighlight">\([0.8, 1.0]\)</span>).</p></li>
+<li><p>The z-coordinate of the torso (the height) is <strong>not</strong> in the closed interval given by the <code class="docutils literal notranslate"><span class="pre">healthy_z_range</span></code> argument (default to <span class="math notranslate nohighlight">\([0.8, 2.0]\)</span>).</p></li>
 <li><p>The absolute value of the angle (<code class="docutils literal notranslate"><span class="pre">observation[1]</span></code> if <code class="docutils literal notranslate"><span class="pre">exclude_current_positions_from_observation=False</span></code>, else <code class="docutils literal notranslate"><span class="pre">observation[2]</span></code>) is <em><strong>not</strong></em> in the closed interval specified by the <code class="docutils literal notranslate"><span class="pre">healthy_angle_range</span></code> argument (default is <span class="math notranslate nohighlight">\([-1, 1]\)</span>).</p></li>
 </ol>
 </section>
@@ -692,7 +695,7 @@ The Walker2d is unhealthy if any of the following happens:</p>
 <p>Walker2d provides a range of parameters to modify the observation space, reward function, initial state, and termination condition.
 These parameters can be applied during <code class="docutils literal notranslate"><span class="pre">gymnasium.make</span></code> in the following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gymnasium</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gym</span>
-<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;Walker2d-v5&#39;</span><span class="p">,</span> <span class="n">ctrl_cost_weight</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">'Walker2d-v5'</span><span class="p">,</span> <span class="n">ctrl_cost_weight</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="table-wrapper colwidths-auto docutils container">
@@ -804,7 +807,7 @@ These parameters can be applied during <code class="docutils literal notranslate
           <div class="bottom-of-page">
             <div class="left-details">
               <div class="copyright">
-                Copyright &#169; 2025 Farama Foundation
+                Copyright &#169; 2026 Farama Foundation
               </div>
               <!--
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
@@ -939,10 +942,10 @@ These parameters can be applied during <code class="docutils literal notranslate
         })()
       </script>
 
-    <script src="../../../_static/documentation_options.js?v=d8a3a229"></script>
+    <script src="../../../_static/documentation_options.js?v=74824699"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/furo.js?v=7660844c"></script>
+    <script src="../../../_static/scripts/celshast.js?v=a788a8c6"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
@@ -1005,14 +1008,6 @@ These parameters can be applied during <code class="docutils literal notranslate
         const jsonResponse = xhr.response;
         const sections = {
           "Core Projects": [],
-          "Mature Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
-          "Incubating Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
           "Foundation": [
             {
               name: "About",
@@ -1026,7 +1021,14 @@ These parameters can be applied during <code class="docutils literal notranslate
               name: "Donate",
               link: "https://farama.org/donations"
             }
-          ]
+          ],
+          "Mature Projects": {
+            "Documentation": [],
+          },
+          "Incubating Projects": {
+            "Documentation": [],
+            "Repositories": [],
+          }
         }
 
         // Categorize projects
@@ -1042,8 +1044,6 @@ These parameters can be applied during <code class="docutils literal notranslate
           } else if (projectJson.type == "mature") {
             if (projectJson.website !== null) {
               sections["Mature Projects"]["Documentation"].push(projectJson)
-            } else {
-              sections["Mature Projects"]["Repositories"].push(projectJson)
             }
           } else {
             if (projectJson.website !== null) {
@@ -1055,6 +1055,13 @@ These parameters can be applied during <code class="docutils literal notranslate
         })
 
         const menuContainer = document.querySelector(".farama-header-menu__body");
+
+        const stackedColumnElem = Object.assign(
+          document.createElement('div'), {
+            style: 'display: flex; flex-direction: column;'
+          }
+        );
+        const stackedKeys = new Set(["Core Projects", "Foundation"]);
 
         Object.keys(sections).forEach((key, i) => {
           const sectionElem = Object.assign(
@@ -1099,7 +1106,14 @@ These parameters can be applied during <code class="docutils literal notranslate
             const ulElem = createProjectsList(projects, true);
             sectionElem.appendChild(ulElem);
           }
-          menuContainer.appendChild(sectionElem)
+          if (stackedKeys.has(key)) {
+            if (!stackedColumnElem.parentNode) {
+              menuContainer.appendChild(stackedColumnElem);
+            }
+            stackedColumnElem.appendChild(sectionElem);
+          } else {
+            menuContainer.appendChild(sectionElem);
+          }
         });
       }
 

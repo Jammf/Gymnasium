@@ -10,15 +10,15 @@
     <meta property="og:url" content="https://gymnasium.farama.org/_modules/gymnasium/wrappers/jax_to_torch.html" /><meta property="og:image" content="https://gymnasium.farama.org/_static/img/gymnasium-github.png" /><meta name="twitter:card" content="summary_large_image"><link rel="index" title="Index" href="../../../../genindex/" /><link rel="search" title="Search" href="../../../../search/" />
         <link rel="canonical" href="https://gymnasium.farama.org/_modules/gymnasium/wrappers/jax_to_torch.html" />
 
-    <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.08.19.dev1 -->
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Celshast 0.0.1 -->
         <title>gymnasium.wrappers.jax_to_torch - Gymnasium Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=3e7f4c72" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/celshast.css?v=9fbfb63d" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=61a4c737" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=82c8b628" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/celshast-extensions.css?v=42bfddca" />
     
     
 
@@ -220,8 +220,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../introduction/create_custom_env/">Create a Custom Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../introduction/record_agent/">Recording Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../introduction/speed_up_env/">Speeding Up Training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/gym_compatibility/">Compatibility with Gym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/migration_guide/">Migration Guide - v0.21 to v1.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/migration_guide/">Gym Migration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul>
@@ -301,6 +300,10 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/training_agents/">Training Agents</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Training Agents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/action_masking_taxi/">Action Masking in the Taxi Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/action_masking_taxi/#running-the-experiment">Running the Experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/action_masking_taxi/#visualizing-results">Visualizing Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/action_masking_taxi/#results-analysis">Results Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/blackjack_q_learning/">Solving Blackjack with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/frozenlake_q_learning/">Solving Frozenlake with Tabular Q-Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/training_agents/mujoco_reinforce/">Training using REINFORCE for Mujoco</a></li>
@@ -372,12 +375,11 @@
 <span class="c1"># https://github.com/google/brax/blob/9d6b7ced2a13da0d074b5e9fbd3aad8311e26997/brax/io/torch.py</span>
 <span class="c1"># Under the Apache 2.0 license. Copyright is held by the authors</span>
 
-<span class="sd">&quot;&quot;&quot;Helper functions and wrapper class for converting between PyTorch and Jax.&quot;&quot;&quot;</span>
+<span class="sd">"""Helper functions and wrapper class for converting between PyTorch and Jax."""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">gymnasium</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gym</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">gymnasium.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">DependencyNotInstalled</span>
@@ -387,26 +389,25 @@
     <span class="n">module_namespace</span><span class="p">,</span>
 <span class="p">)</span>
 
-
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
 
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="k">raise</span> <span class="n">DependencyNotInstalled</span><span class="p">(</span>
-        <span class="s1">&#39;Jax is not installed therefore cannot call `torch_to_jax`, run `pip install &quot;gymnasium[jax]&quot;`&#39;</span>
-    <span class="p">)</span>
+        <span class="s1">'Jax is not installed therefore cannot call `torch_to_jax`, run `pip install "gymnasium[jax]"`'</span>
+    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
-    <span class="n">Device</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">]</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">Device</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="k">raise</span> <span class="n">DependencyNotInstalled</span><span class="p">(</span>
-        <span class="s1">&#39;Torch is not installed therefore cannot call `torch_to_jax`, run `pip install &quot;gymnasium[torch]&quot;`&#39;</span>
-    <span class="p">)</span>
+        <span class="s1">'Torch is not installed therefore cannot call `torch_to_jax`, run `pip install "gymnasium[torch]"`'</span>
+    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;JaxToTorch&quot;</span><span class="p">,</span> <span class="s2">&quot;jax_to_torch&quot;</span><span class="p">,</span> <span class="s2">&quot;torch_to_jax&quot;</span><span class="p">,</span> <span class="s2">&quot;Device&quot;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"JaxToTorch"</span><span class="p">,</span> <span class="s2">"jax_to_torch"</span><span class="p">,</span> <span class="s2">"torch_to_jax"</span><span class="p">,</span> <span class="s2">"Device"</span><span class="p">]</span>
 
 
 <span class="n">torch_to_jax</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">array_conversion</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="n">module_namespace</span><span class="p">(</span><span class="n">jnp</span><span class="p">))</span>
@@ -417,7 +418,7 @@
 <div class="viewcode-block" id="JaxToTorch">
 <a class="viewcode-back" href="../../../../api/wrappers/misc_wrappers/#gymnasium.wrappers.JaxToTorch">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">JaxToTorch</span><span class="p">(</span><span class="n">ArrayConversion</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps a Jax-based environment so that it can be interacted with PyTorch Tensors.</span>
+<span class="w">    </span><span class="sd">"""Wraps a Jax-based environment so that it can be interacted with PyTorch Tensors.</span>
 
 <span class="sd">    Actions must be provided as PyTorch Tensors and observations will be returned as PyTorch Tensors.</span>
 <span class="sd">    A vector version of the wrapper exists, :class:`gymnasium.wrappers.vector.JaxToTorch`.</span>
@@ -428,33 +429,34 @@
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt; import torch                                                # doctest: +SKIP</span>
 <span class="sd">        &gt;&gt;&gt; import gymnasium as gym                                     # doctest: +SKIP</span>
-<span class="sd">        &gt;&gt;&gt; env = gym.make(&quot;JaxEnv-vx&quot;)                                 # doctest: +SKIP</span>
+<span class="sd">        &gt;&gt;&gt; env = gym.make("JaxEnv-vx")                                 # doctest: +SKIP</span>
 <span class="sd">        &gt;&gt;&gt; env = JaxtoTorch(env)                                       # doctest: +SKIP</span>
 <span class="sd">        &gt;&gt;&gt; obs, _ = env.reset(seed=123)                                # doctest: +SKIP</span>
 <span class="sd">        &gt;&gt;&gt; type(obs)                                                   # doctest: +SKIP</span>
-<span class="sd">        &lt;class &#39;torch.Tensor&#39;&gt;</span>
+<span class="sd">        &lt;class 'torch.Tensor'&gt;</span>
 <span class="sd">        &gt;&gt;&gt; action = torch.tensor(env.action_space.sample())            # doctest: +SKIP</span>
 <span class="sd">        &gt;&gt;&gt; obs, reward, terminated, truncated, info = env.step(action) # doctest: +SKIP</span>
 <span class="sd">        &gt;&gt;&gt; type(obs)                                                   # doctest: +SKIP</span>
-<span class="sd">        &lt;class &#39;torch.Tensor&#39;&gt;</span>
+<span class="sd">        &lt;class 'torch.Tensor'&gt;</span>
 <span class="sd">        &gt;&gt;&gt; type(reward)                                                # doctest: +SKIP</span>
-<span class="sd">        &lt;class &#39;float&#39;&gt;</span>
+<span class="sd">        &lt;class 'float'&gt;</span>
 <span class="sd">        &gt;&gt;&gt; type(terminated)                                            # doctest: +SKIP</span>
-<span class="sd">        &lt;class &#39;bool&#39;&gt;</span>
+<span class="sd">        &lt;class 'bool'&gt;</span>
 <span class="sd">        &gt;&gt;&gt; type(truncated)                                             # doctest: +SKIP</span>
-<span class="sd">        &lt;class &#39;bool&#39;&gt;</span>
+<span class="sd">        &lt;class 'bool'&gt;</span>
 
 <span class="sd">    Change logs:</span>
 <span class="sd">     * v1.0.0 - Initially added</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">gym</span><span class="o">.</span><span class="n">Env</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">Device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Wrapper class to change inputs and outputs of environment to PyTorch tensors.</span>
+<span class="w">        </span><span class="sd">"""Wrapper class to change inputs and outputs of environment to PyTorch tensors.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            env: The Jax-based environment to wrap</span>
 <span class="sd">            device: The device the torch Tensors should be moved to</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
+        <span class="n">gym</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">RecordConstructorArgs</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span> <span class="n">env_xp</span><span class="o">=</span><span class="n">jnp</span><span class="p">,</span> <span class="n">target_xp</span><span class="o">=</span><span class="n">torch</span><span class="p">,</span> <span class="n">target_device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># TODO: Device was part of the public API, but should be removed in favor of _env_device and</span>
@@ -473,7 +475,7 @@
           <div class="bottom-of-page">
             <div class="left-details">
               <div class="copyright">
-                Copyright &#169; 2025 Farama Foundation
+                Copyright &#169; 2026 Farama Foundation
               </div>
               <!--
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
@@ -578,10 +580,10 @@
         })()
       </script>
 
-    <script src="../../../../_static/documentation_options.js?v=d8a3a229"></script>
+    <script src="../../../../_static/documentation_options.js?v=74824699"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=7660844c"></script>
+    <script src="../../../../_static/scripts/celshast.js?v=a788a8c6"></script>
     
     <script>
 
@@ -642,14 +644,6 @@
         const jsonResponse = xhr.response;
         const sections = {
           "Core Projects": [],
-          "Mature Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
-          "Incubating Projects": {
-            "Documentation": [],
-            "Repositories": [],
-          },
           "Foundation": [
             {
               name: "About",
@@ -663,7 +657,14 @@
               name: "Donate",
               link: "https://farama.org/donations"
             }
-          ]
+          ],
+          "Mature Projects": {
+            "Documentation": [],
+          },
+          "Incubating Projects": {
+            "Documentation": [],
+            "Repositories": [],
+          }
         }
 
         // Categorize projects
@@ -679,8 +680,6 @@
           } else if (projectJson.type == "mature") {
             if (projectJson.website !== null) {
               sections["Mature Projects"]["Documentation"].push(projectJson)
-            } else {
-              sections["Mature Projects"]["Repositories"].push(projectJson)
             }
           } else {
             if (projectJson.website !== null) {
@@ -692,6 +691,13 @@
         })
 
         const menuContainer = document.querySelector(".farama-header-menu__body");
+
+        const stackedColumnElem = Object.assign(
+          document.createElement('div'), {
+            style: 'display: flex; flex-direction: column;'
+          }
+        );
+        const stackedKeys = new Set(["Core Projects", "Foundation"]);
 
         Object.keys(sections).forEach((key, i) => {
           const sectionElem = Object.assign(
@@ -736,7 +742,14 @@
             const ulElem = createProjectsList(projects, true);
             sectionElem.appendChild(ulElem);
           }
-          menuContainer.appendChild(sectionElem)
+          if (stackedKeys.has(key)) {
+            if (!stackedColumnElem.parentNode) {
+              menuContainer.appendChild(stackedColumnElem);
+            }
+            stackedColumnElem.appendChild(sectionElem);
+          } else {
+            menuContainer.appendChild(sectionElem);
+          }
         });
       }
 
